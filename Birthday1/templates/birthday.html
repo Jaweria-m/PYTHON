@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Anmol! 💫</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Animated Doodles -->
+    <div class="doodle doodle-1">✨</div>
+    <div class="doodle doodle-2">🎀</div>
+    <div class="doodle doodle-3">💫</div>
+    <div class="doodle doodle-4">🌸</div>
+    <div class="doodle doodle-5">🎊</div>
+    <div class="doodle doodle-6">💝</div>
+    <div class="doodle doodle-7">🎨</div>
+    <div class="doodle doodle-8">🦋</div>
+    <div class="doodle doodle-9">🌟</div>
+    <div class="doodle doodle-10">💕</div>
+
+    <!-- Page 1: Special Question -->
+    <div class="page active" id="page1">
+        <div class="container">
+            <div class="header">
+                <h1 class="birthday-title">Happy Birthday <span class="name-highlight">{{ name }}</span>! 🎂</h1>
+                <div class="age-badge">Turning {{ age }}! ✨</div>
+                <div class="subtitle">From your best friend {{ my_name }} 💖</div>
+            </div>
+
+            <div class="question-box">
+                <div class="question">Do you know how special you are to me? 💖</div>
+                <div class="options">
+                    <button class="option-btn wrong-option" onclick="showAlert()">100%</button>
+                    <button class="option-btn correct-option" onclick="nextPage(2)">Infinite ♾️</button>
+                </div>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress" style="width: 25%"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 2: Love Question -->
+    <div class="page" id="page2">
+        <div class="container">
+            <div class="header">
+                <h1 class="birthday-title">You're Amazing! 🌟</h1>
+                <div class="crush-mention">Sending love from {{ crush_name }} too! 💕</div>
+            </div>
+
+            <div class="question-box">
+                <div class="question">How much do you think I love you? 💕</div>
+                <div class="options">
+                    <button class="option-btn wrong-option" onclick="showAlert()">0%</button>
+                    <button class="option-btn correct-option" onclick="nextPage(3)">Infinite ♾️</button>
+                </div>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress" style="width: 50%"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 3: Cake Cutting -->
+    <div class="page" id="page3">
+        <div class="container">
+            <div class="header">
+                <h1 class="birthday-title">Cut the Cake! 🎂</h1>
+                <div class="subtitle">Make a wish and click the cake!</div>
+            </div>
+
+            <div class="cake-container">
+                <div class="cake" onclick="cutCake()">
+                    <div class="plate"></div>
+                    <div class="layer layer-bottom"></div>
+                    <div class="layer layer-middle"></div>
+                    <div class="layer layer-top"></div>
+                    <div class="icing"></div>
+                    <div class="candles">
+                        <div class="flame"></div>
+                        <div class="flame"></div>
+                        <div class="flame"></div>
+                    </div>
+                </div>
+                <p class="instruction">Click the cake to cut it! 🎂</p>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress" style="width: 75%"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 4: Final Message -->
+    <div class="page" id="page4">
+        <div class="container">
+            <div class="header">
+                <h1 class="birthday-title">🎂💌 Happy Birthday to My Forever Best Friend 💌🎂</h1>
+            </div>
+
+            <div class="message-box">
+                <div class="message-content" id="messageContent">
+                    <!-- Message will be loaded via JavaScript -->
+                </div>
+
+                <div class="signature">
+                    With all my love,<br>
+                    Your {{ my_name }} 💕
+                </div>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress" style="width: 100%"></div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="action-btn" onclick="createHearts()">💖 Send Virtual Hug 💖</button>
+                <button class="action-btn" onclick="createMagic()">✨ Create Magic ✨</button>
+                <button class="action-btn" onclick="resetExperience()">🔄 Experience Again 🔄</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alert Box -->
+    <div class="alert" id="alert">
+        <div class="alert-content">
+            <span class="alert-icon">❌</span>
+            <span class="alert-text">Wrong Choice! You're way more special than that! 💖</span>
+        </div>
+    </div>
+
+    <!-- Music Player -->
+    <div class="music-player">
+        <button id="musicBtn" class="music-btn">🎵 Play Birthday Music</button>
+        <audio id="birthdayMusic" loop>
+            <source src="https://www.soundjay.com/misc/sounds/happy-birthday-song.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
